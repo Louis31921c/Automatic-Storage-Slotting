@@ -1,0 +1,27 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# runtime state
+data/*.db
+data/*.db-*
+data/run/
+data/inbox/
+data/dead_letter/
+*.log
+
+# large binaries (no git-lfs installed yet): kept on disk, not versioned
+*.FCStd
+*.FCBak
+*.ifc
+*.mp4
+
+.~lock.*#
+~$*
+data/out/
+*.kate-swp
+consignes.txt
+docs/open_questions.md
+CLAUDE.md

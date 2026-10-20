@@ -1,0 +1,27 @@
+# Live Excel sync (watcher service). Paths relative to repo root.
+debounce_s: 2.0            # wait for stable mtime + size before ingest
+heartbeat_s: 10.0          # watcher -> data/run/watcher.heartbeat
+dead_letter_path: data/dead_letter
+engine_url: http://127.0.0.1:8000
+
+watch:
+  - name: supplier
+    path: data/inbox/supplier
+    mode: event              # event = inotify (local disk) | poll = network shares
+    poll_interval_s: 30
+    enabled_types: [purchase_order, delivery_note]
+  - name: customer
+    path: data/inbox/customer
+    mode: event
+    poll_interval_s: 30
+    enabled_types: [customer_order, truck_planning]
+  - name: stock
+    path: data/inbox/stock
+    mode: event
+    poll_interval_s: 30
+    enabled_types: [stock]
+  - name: mixed                # one workbook / PDF holding several datasets (detected per sheet)
+    path: data/inbox/mixed
+    mode: event
+    poll_interval_s: 30
+    enabled_types: [purchase_order, delivery_note, stock, customer_order, truck_planning]
