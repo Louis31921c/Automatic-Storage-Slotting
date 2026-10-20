@@ -75,24 +75,6 @@ All four buildings were modelled in 3D (FreeCAD) from site photos, cadastre data
 
 *Rack sizes are estimates. An on-site check is planned before go-live.*
 
----
-
-## Get started
-
-```bash
-python3 -m venv .venv && .venv/bin/pip install -r engine/requirements.txt -r watcher/requirements.txt
-```
-```bash
-scripts/dev.sh
-```
-
-Then open `data/out/warehouse_status.xlsx`.
-
-To try it with a warehouse about 70% full:
-
-```bash
-.venv/bin/python data/samples/seed_full_warehouse.py
-```
 
 ---
 
